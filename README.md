@@ -9,3 +9,4 @@ The goal of this exercise was to understand file access mechanisms in Android ap
 • Using the Storage Access Framework for indirect file access via URIs;   
 • Implementing a simple text editor with file reading, editing, and saving capabilities.  
 ## `Lab4`  
+... 
