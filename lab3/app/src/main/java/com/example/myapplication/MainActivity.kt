@@ -25,26 +25,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main) // Ustawienie układu XML
 
-        // Pobranie elementów UI z XML
         editTextFileContent = findViewById(R.id.editTextFileContent)
         textViewFilePath = findViewById(R.id.textViewFilePath)
         buttonOpenFile = findViewById(R.id.buttonOpenFile)
         buttonSaveFile = findViewById(R.id.buttonSaveFile)
 
-        // Obsługa przycisku do otwierania pliku
         buttonOpenFile.setOnClickListener {
             scopedStorageHelper.pickFileToOpen(openFileLauncher, "text/plain")
         }
 
-        // Obsługa przycisku do zapisywania pliku
         buttonSaveFile.setOnClickListener {
             currentFileUri?.let {
                 saveFile(it)
-            } ?: pickFileToSave() // Jeśli plik nie jest jeszcze otwarty, wybierz miejsce do zapisu
+            } ?: pickFileToSave()
         }
     }
 
-    // Otwieranie pliku – obsługa wyniku
     private val openFileLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
@@ -57,14 +53,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-    // Funkcja do czytania pliku i wyświetlania w EditText
+
     private fun readAndDisplayFile(uri: Uri) {
         val contentResolver = contentResolver
         val fileContent = scopedStorageHelper.readFile(contentResolver, uri)
         editTextFileContent.setText(fileContent?.toString(Charsets.UTF_8))
     }
 
-    // Funkcja do zapisywania pliku
+
     private fun saveFile(uri: Uri) {
         val contentResolver = contentResolver
         val textToSave = editTextFileContent.text.toString().toByteArray()
