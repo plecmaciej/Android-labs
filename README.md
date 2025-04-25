@@ -16,5 +16,13 @@ The goal of this exercise was to understand and implement background operations 
 • Displaying regular updates of service data (elapsed time) in the activity;  
 • Running the service as a foreground service with a persistent notification;  
 • Handling runtime permissions for foreground services and notifications (especially on Android 13+).  
-## `Lab5`
-...  
+## `Lab5`  
+The goal of this exercise was to understand how to integrate native C++ code into an Android application using the Java Native Interface (JNI), including:  
+• Creating a new Android project based on the Native C++ template;  
+• Generating and displaying an array of random numbers using Kotlin;  
+• Implementing a native C++ function to sort the array (ascending or descending);  
+• Calling native functions from Kotlin through JNI bindings;  
+• Comparing the execution time of native vs. Kotlin-based sorting methods;  
+• Measuring and displaying sorting performance and results inside the app.  
+
+This lab helps to demonstrate the power and flexibility of combining Kotlin with native code for performance-critical tasks on Android.  
